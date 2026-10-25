@@ -1,0 +1,19 @@
+name: Checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  lake-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: leanprover/lean-action@v1
+        with:
+          build: true
+          test: false
+          lint: false
+      - name: No sorry, axiom or native_decide
+        run: "! grep -nE '\\b(sorry|axiom|native_decide)\\b' Retarget.lean"
+      - name: The C entry point is emitted
+        run: grep -q 'retarget_lean_clip' .lake/build/ir/Retarget.c

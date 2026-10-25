@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "interactor-motion-retarget"
+abstract: "Retargets a SOMA30 motion clip onto a humanoid rig in Lean 4, in a workspace whose size is proved constant."
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+license: MIT
+repository-code: "https://github.com/V-Sekai-fire/interactor-motion-retarget"
